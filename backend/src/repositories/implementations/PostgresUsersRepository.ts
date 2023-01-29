@@ -41,4 +41,13 @@ export class PostgresUsertRepository implements IUserRepository {
 
     return product;
   }
+
+  async findByLogin(login: string): Promise<User | null> {
+    const user = await prisma.users.findFirst({
+      where: {
+        login,
+      },
+    });
+    return user;
+  }
 }

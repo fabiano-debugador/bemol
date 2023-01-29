@@ -31,10 +31,10 @@ export class CreateUserController {
       });
 
       return response.status(201).send();
-    } catch (error) {
+    } catch (error: any) {
       return response
         .status(400)
-        .json({ message: error || "Unexpected error" });
+        .json({ message: error.message || "Unexpected error" });
     }
   }
 }
